@@ -1,0 +1,13 @@
+.select-container {
+  position: relative;
+  .select-arrow {
+    position: absolute;
+    right: 10px;
+    // 안정감을 위한 2px여유를 준다
+    bottom: calc(6px + 2px);
+    pointer-events: none;
+    &:hover {
+      cursor: default;
+    }
+  }
+}

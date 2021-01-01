@@ -1,0 +1,42 @@
+.radio-container {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 0;
+  padding: 6px 10px 6px 50px;
+  &:hover {
+    cursor: pointer;
+  }
+
+  input[type='radio'] {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    margin: 0;
+    display: inline-block;
+    height: 26px;
+    color: #555;
+    text-align: center;
+    line-height: 26px;
+    letter-spacing: 0.1rem;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 7px;
+    vertical-align: top;
+  }
+  .radio-mark {
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    font-size: 26px;
+    color: $primary;
+  }
+
+  .radio-label {
+    font-weight: normal;
+    line-height: 26px;
+  }
+
+  input[type='radio']:disabled ~ .radio-mark {
+    color: $disabled;
+  }
+}

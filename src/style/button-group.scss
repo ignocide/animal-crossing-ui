@@ -1,0 +1,23 @@
+.button-group {
+  display: inline-flex;
+
+  button + button {
+    margin-left: 10px;
+  }
+
+  &.button-stick-group {
+    button {
+      border-radius: 0;
+      &:first-of-type {
+        border-radius: 4px 0 0 4px;
+      }
+      &:last-of-type {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+    button + button {
+      margin-left: 0px;
+      border-left: 1px solid #bbb;
+    }
+  }
+}

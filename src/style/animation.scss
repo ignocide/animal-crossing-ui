@@ -1,0 +1,46 @@
+//fade
+.fade-enter {
+  opacity: 0;
+  transform: scale(0.95);
+
+  &.fade-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: scale(1);
+  &.fade-exit-active {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+}
+
+//popup
+.popup-enter {
+  opacity: 0;
+  transform: scale(0);
+  &.popup-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+}
+
+.popup-exit {
+  opacity: 1;
+  transform: scale(1);
+  &.popup-exit-active {
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+}

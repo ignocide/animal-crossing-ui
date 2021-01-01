@@ -1,0 +1,28 @@
+.form-field-container {
+  margin-bottom: 1.5rem;
+  display: inline-block;
+
+  &.u-full-width {
+    display: block;
+  }
+  button {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  select {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  input {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  textarea {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .form-field {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
