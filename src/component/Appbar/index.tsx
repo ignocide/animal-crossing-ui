@@ -21,9 +21,9 @@ export const AppbarRightChildren: FC<PropsWithChildren<{}>> = ({
   children,
 }) => {
   return (
-    <>
+    <React.Fragment>
       <div className={'app-bar-divider'} />
       <div className={'app-bar-right'}>{children}</div>
-    </>
+    </React.Fragment>
   );
 };

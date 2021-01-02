@@ -5,14 +5,13 @@ import { Row } from './component/Row';
 import { Button } from './component/Button';
 import { Checkbox } from './component/Checkbox';
 import { Radio } from './component/Radio';
-import Mobile from './Mobile';
 import Modal, {
   ModalBody,
   ModalContainer,
   ModalFooter,
   ModalHeader,
 } from './component/Modal';
-import { ButtonGroup } from './component/Button/ButtonGroup';
+import { ButtonGroup } from './component/ButtonGroup';
 import { Icon, IconButton } from './component/Icon';
 import { FormInput } from './component/Form/FormInput';
 import { FormSelect } from './component/Form/FormSelect';
@@ -20,7 +19,7 @@ import { FormField } from './component/Form/FormField';
 import { FormTextarea } from './component/Form/FormTextarea';
 import { Appbar, AppbarRightChildren } from './component/Appbar';
 import { Box } from './component/Box';
-function App() {
+function Demo() {
   const [checked, setChecked] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
@@ -49,7 +48,7 @@ function App() {
     setSelectedFruit(e.target.value);
   }
   return (
-    <div className='container app'>
+    <div className="container app">
       <Appbar>
         {'동숲 ui'}
         <div className={'app-bar-divider'}></div>
@@ -226,7 +225,7 @@ function App() {
       <section>
         <Box>
           <h2>테이블</h2>
-          <table className='u-full-width'>
+          <table className="u-full-width">
             <thead>
               <tr>
                 <th>Name</th>
@@ -255,11 +254,6 @@ function App() {
 
       <section>
         <Box>
-          <Mobile />
-        </Box>
-      </section>
-      <section>
-        <Box>
           <h2>{'모달'}</h2>
           <ButtonGroup>
             <Button onClick={() => setIsModalOpen(true)}>모달열기</Button>
@@ -278,7 +272,7 @@ function App() {
             {'material.io를 이용하고 있습니다. '}
             <a
               target={'_blank'}
-              rel='noreferrer'
+              rel="noopener noreferrer"
               href={
                 'https://material.io/resources/icons/?icon=keyboard&style=baseline'
               }
@@ -342,4 +336,4 @@ function App() {
   );
 }
 
-export default App;
+export default Demo;

@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './App';
+import Demo from './Demo';
 import reportWebVitals from './reportWebVitals';
 import { ModalProvider } from './component/Modal/context';
 
 ReactDOM.render(
   <React.StrictMode>
     <ModalProvider>
-      <App />
+      <Demo />
     </ModalProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

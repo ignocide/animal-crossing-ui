@@ -69,7 +69,7 @@ class ModalPortal extends React.Component<IProps, any> {
     );
   };
 
-  requestClose = (e: any) => {
+  requestClose = () => {
     this.changeOpenState(false, this.props.requestClose);
   };
 
