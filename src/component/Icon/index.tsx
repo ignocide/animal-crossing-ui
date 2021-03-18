@@ -35,7 +35,7 @@ export const IconButton: FC<Props> = ({
   ...props
 }) => {
   return (
-    <Button classNames={cn('icon-button', classNames)} {...props}>
+    <Button classNames={cn('', classNames)} {...props}>
       <Icon name={name} />
     </Button>
   );

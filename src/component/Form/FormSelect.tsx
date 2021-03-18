@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { Select, SelectProps } from '../Select';
-import { FormFieldContainer } from '.';
 interface FormSelectProps extends SelectProps {
   label: string;
 }
@@ -10,19 +9,16 @@ export const FormSelect: FC<FormSelectProps> = ({
   id,
   label,
   options,
-  fullWidth = true,
   ...props
 }) => {
   return (
-    <FormFieldContainer fullWidth={fullWidth}>
-      <label htmlFor={id}>{label}</label>
-      <Select
-        className={className}
-        options={options}
-        id={id}
-        fullWidth={fullWidth}
-        {...props}
-      />
-    </FormFieldContainer>
+    <div className={className}>
+      <label htmlFor={id} className={'block text-sm font-medium text-gray-700'}>
+        {label}
+      </label>
+      <div className="mt-1 flex rounded-md shadow-sm">
+        <Select options={options} id={id} {...props} />
+      </div>
+    </div>
   );
 };

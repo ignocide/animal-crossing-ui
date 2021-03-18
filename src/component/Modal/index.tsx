@@ -20,11 +20,8 @@ export const ModalHeader: FC<any> = ({
   ...props
 }) => {
   return (
-    <div className={cn('modal-header', className)} {...props}>
-      <h4>
-        {children}
-        {right}
-      </h4>
+    <div className={cn('px-3 py-2', className)} {...props}>
+      {children}
     </div>
   );
 };
@@ -35,7 +32,7 @@ export const ModalBody: FC<any> = ({
   ...props
 }) => {
   return (
-    <div className={cn('modal-body', className)} {...props}>
+    <div className={cn('px-3 py-2', className)} {...props}>
       {children}
     </div>
   );
@@ -43,7 +40,7 @@ export const ModalBody: FC<any> = ({
 
 export const ModalFooter: FC<any> = ({ className, children, ...props }) => {
   return (
-    <div className={cn('modal-footer', className)} {...props}>
+    <div className={cn('px-3 py-2', className)} {...props}>
       {children}
     </div>
   );
@@ -51,7 +48,16 @@ export const ModalFooter: FC<any> = ({ className, children, ...props }) => {
 
 export const ModalContainer: FC<any> = ({ className, children, ...props }) => {
   return (
-    <div className={cn('modal-container', className)} {...props}>
+    <div
+      className={cn(
+        'bg-white overflow-hidden relative rounded-md border-1 border-gray-300',
+        className,
+      )}
+      style={{
+        minWidth: 300,
+      }}
+      {...props}
+    >
       {children}
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { Column } from './component/Column';
+import { Column, Grid } from './component/Column';
 import { Row } from './component/Row';
 import { Button } from './component/Button';
 import { Checkbox } from './component/Checkbox';
@@ -17,7 +17,7 @@ import { FormInput } from './component/Form/FormInput';
 import { FormSelect } from './component/Form/FormSelect';
 import { FormField } from './component/Form/FormField';
 import { FormTextarea } from './component/Form/FormTextarea';
-import { Appbar, AppbarRightChildren } from './component/Appbar';
+import { Appbar } from './component/Appbar';
 import { Box } from './component/Box';
 function Demo() {
   const [checked, setChecked] = useState(true);
@@ -48,24 +48,27 @@ function Demo() {
     setSelectedFruit(e.target.value);
   }
   return (
-    <div className="container app">
-      <Appbar>
-        {'동숲 ui'}
-        <div className={'app-bar-divider'}></div>
-        <AppbarRightChildren>
-          <IconButton name={'keyboard'} />
-        </AppbarRightChildren>
-      </Appbar>
-      <section>
+    <div className="bg-gray-100">
+      <Appbar right={<IconButton name={'keyboard'} />}>{'동숲 ui'}</Appbar>
+      <section
+        className={'container mx-auto'}
+        style={{
+          marginTop: 10,
+        }}
+      >
         <Box>
           <h2>{'row와 컬럼'}</h2>
-          <Row>
-            <Column size={12}>{'한줄짜리 입니다. 너굴!'}</Column>
-          </Row>
-          <Row>
-            <Column size={6}>{'반줄짜리 입니다. 너굴!'}</Column>
-            <Column size={6}>{'반줄짜리 입니다. 너굴!'}</Column>
-          </Row>
+          <Grid size={1}>
+            <div>{'한줄짜리'}</div>
+          </Grid>
+          <Grid size={2}>
+            <div>{'반줄짜리'}</div>
+            <div>{'반줄짜리'}</div>
+          </Grid>
+          <Grid size={6}>
+            <Column start={3}>{'2칸 띄워서 시작'}</Column>
+            <Column span={2}>{'2칸 큰 칸 먹음'}</Column>
+          </Grid>
         </Box>
       </section>
       <section>
@@ -93,14 +96,16 @@ function Demo() {
       <section>
         <Box>
           <h2>{'버튼'}</h2>
-          <Button>{'메인 버튼'}</Button>
+          <div className={'p-2'}>
+            <Button>{'메인 버튼'}</Button>
+          </div>
           <br />
-          <ButtonGroup>
+          <ButtonGroup classNames={'p-2'}>
             <Button warning>{'빨간 버튼'}</Button>
             <Button disabled>{'비활성화된 버튼'}</Button>
           </ButtonGroup>
           <br />
-          <ButtonGroup stick={true}>
+          <ButtonGroup stick={true} classNames={'p-2'}>
             <Button>{'메인 버튼'}</Button>
             <Button>{'메인 버튼'}</Button>
             <Button warning>{'빨간 버튼'}</Button>
@@ -111,72 +116,67 @@ function Demo() {
       <section>
         <Box>
           <h2>{'폼'}</h2>
-          <Row>
-            <Column size={6}>
-              <FormInput id={'email'} label={'Your email'} type={'email'} />
-            </Column>
-            <Column size={6}>
-              <FormSelect
-                id={'select'}
-                label={'Reason for contacting'}
-                options={selectOptions}
+          <Grid size={2} gap={1}>
+            <FormInput
+              id={'email'}
+              label={'Your email'}
+              type={'email'}
+              className={'mb-4'}
+            />
+            <FormSelect
+              id={'select'}
+              label={'Reason for contacting'}
+              options={selectOptions}
+            />
+          </Grid>
+          <Grid size={6}>
+            <FormInput
+              id={'email'}
+              label={'Your email'}
+              type={'email'}
+              value={'aaa@bbb.com'}
+              disabled
+            />
+          </Grid>
+          <Grid size={6}>
+            <Checkbox
+              checked={checked}
+              onChange={handleChecked}
+              label={'동의 하십니까?'}
+            />
+            <Checkbox
+              checked={checked}
+              onChange={handleChecked}
+              label={'동의 하십니까?'}
+              disabled
+            />
+          </Grid>
+          <Grid size={6}>
+            <FormField label={'과일을 골라라'} id={'agree'}>
+              <Radio
+                checked={selectedFruit === 'apple'}
+                onChange={handleChangeRadio}
+                name={'fruit'}
+                label={'사과'}
+                value={'apple'}
               />
-            </Column>
-          </Row>
-          <Row>
-            <Column size={6}>
-              <FormInput
-                id={'email'}
-                label={'Your email'}
-                type={'email'}
-                value={'aaa@bbb.com'}
+              <Radio
+                checked={selectedFruit === 'banana'}
+                onChange={handleChangeRadio}
+                name={'fruit'}
+                label={'바나나'}
+                value={'banana'}
+              />
+              <Radio
+                checked={selectedFruit === 'strawberry'}
+                onChange={handleChangeRadio}
+                name={'fruit'}
+                label={'딸기'}
+                value={'strawberry'}
                 disabled
               />
-            </Column>
-          </Row>
-          <Row>
-            <Column size={6}>
-              <FormField label={'동의 하십니까?'} id={'agree'}>
-                <Checkbox
-                  checked={checked}
-                  onChange={handleChecked}
-                  label={'동의 하십니까?'}
-                />
-                <Checkbox
-                  checked={checked}
-                  onChange={handleChecked}
-                  label={'동의 하십니까?'}
-                  disabled
-                />
-              </FormField>
-            </Column>
-            <Column size={6}>
-              <FormField label={'과일을 골라라'} id={'agree'}>
-                <Radio
-                  checked={selectedFruit === 'apple'}
-                  onChange={handleChangeRadio}
-                  name={'fruit'}
-                  label={'사과'}
-                  value={'apple'}
-                />
-                <Radio
-                  checked={selectedFruit === 'banana'}
-                  onChange={handleChangeRadio}
-                  name={'fruit'}
-                  label={'바나나'}
-                  value={'banana'}
-                />
-                <Radio
-                  checked={selectedFruit === 'strawberry'}
-                  onChange={handleChangeRadio}
-                  name={'fruit'}
-                  label={'딸기'}
-                  value={'strawberry'}
-                  disabled
-                />
-              </FormField>
-            </Column>
-          </Row>
+            </FormField>
+          </Grid>
           <FormTextarea id={'message'} label={'Message'} />
           <Button type={'submit'}>{'SUBMIT'}</Button>
         </Box>
@@ -184,32 +184,26 @@ function Demo() {
       <section>
         <Box>
           <h2>Lists</h2>
-          <Row>
-            <Column size={6}>
-              <ul>
-                <li>
-                  Unordered lists have basic styles They use the circle list
-                  style
-                </li>
-                <li>
-                  Nested lists styled to feel right Can nest either type of list
-                </li>
-                <li>into the other Just more list items mama san</li>
-              </ul>
-            </Column>
-            <Column size={6}>
-              <ol>
-                <li>
-                  Unordered lists have basic styles They use the circle list
-                  style
-                </li>
-                <li>
-                  Nested lists styled to feel right Can nest either type of list
-                </li>
-                <li>into the other Just more list items mama san</li>
-              </ol>
-            </Column>
-          </Row>
+          <Grid size={2}>
+            <ul>
+              <li>
+                Unordered lists have basic styles They use the circle list style
+              </li>
+              <li>
+                Nested lists styled to feel right Can nest either type of list
+              </li>
+              <li>into the other Just more list items mama san</li>
+            </ul>
+            <ol>
+              <li>
+                Unordered lists have basic styles They use the circle list style
+              </li>
+              <li>
+                Nested lists styled to feel right Can nest either type of list
+              </li>
+              <li>into the other Just more list items mama san</li>
+            </ol>
+          </Grid>
         </Box>
       </section>
       <section>
@@ -225,7 +219,7 @@ function Demo() {
       <section>
         <Box>
           <h2>테이블</h2>
-          <table className="u-full-width">
+          <table className="table-auto w-full">
             <thead>
               <tr>
                 <th>Name</th>

@@ -5,14 +5,20 @@ interface Props extends InputHTMLAttributes<any> {
   label?: string;
   name: string;
 }
-export const Radio: FC<Props> = ({ checked, label, name, ...props }) => {
+export const Radio: FC<Props> = ({ checked, label, name, id, ...props }) => {
   return (
-    <label className='radio-container'>
-      {label && <span className={'radio-label'}>{label}</span>}
-      <input type='radio' checked={checked} name={name} {...props} />
-      <span className='material-icons radio-mark'>
-        {checked ? 'radio_button_checked' : 'radio_button_unchecked'}
-      </span>
+    <label htmlFor={id} className={'flex items-center h-10 px-3 py-2'}>
+      {/* <label  className={'block text-sm font-medium text-gray-700'}> */}
+      <div className={'flex items-center h-5'}>
+        <input
+          checked={checked}
+          id={id}
+          {...props}
+          type="radio"
+          className="focus:ring-indigo-500 h-5 w-5 text-indigo-600 border-gray-300 rounded"
+        />
+      </div>
+      {label && <span className={'ml-3 text-sm'}>{label}</span>}
     </label>
   );
 };

@@ -1,6 +1,5 @@
 import { FC, SelectHTMLAttributes } from 'react';
-import { FullWidthProps } from '..';
-export interface SelectProps extends FullWidthProps, SelectHTMLAttributes<any> {
+export interface SelectProps extends SelectHTMLAttributes<any> {
     options: {
         value: any;
         label: string;

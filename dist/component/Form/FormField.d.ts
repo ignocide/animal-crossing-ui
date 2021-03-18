@@ -1,6 +1,5 @@
 import { FC, HTMLAttributes } from 'react';
-import { FullWidthProps } from '..';
-interface FormFieldIdProps extends FullWidthProps, HTMLAttributes<any> {
+interface FormFieldIdProps extends HTMLAttributes<any> {
     label: string;
 }
 export declare const FormField: FC<FormFieldIdProps>;

@@ -1,7 +1,6 @@
-import { FC, HTMLAttributes, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes } from 'react';
 interface Props extends HTMLAttributes<any> {
-    position?: 'fixed' | 'relative' | 'absolute';
+    right?: any;
 }
 export declare const Appbar: FC<Props>;
-export declare const AppbarRightChildren: FC<PropsWithChildren<{}>>;
 export {};

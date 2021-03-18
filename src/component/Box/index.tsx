@@ -15,12 +15,12 @@ export const Box: FC<Props> = ({
   return (
     <div
       className={cn(
-        'box',
+        'bg-white overflow-hidden px-4 py-5 container mx-auto',
         {
-          'box-no-shadow': noShadow,
-          'box-rect': rect,
+          shadow: !noShadow,
+          'sm:rounded-lg': !rect,
         },
-        className
+        className,
       )}
       {...props}
     >
