@@ -117,7 +117,7 @@ var Radio = function Radio(_ref) {
   }, label));
 };
 
-var Context = React.createContext({});
+const Context = React.createContext({});
 
 var ModalHeader = function ModalHeader(_ref) {
   var className = _ref.className,
@@ -217,23 +217,22 @@ var FormInput = function FormInput(_ref) {
   }, props))));
 };
 
-var Select = function Select(_ref) {
-  var className = _ref.className,
-      options = _ref.options,
-      id = _ref.id,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "options", "id"]);
-
+const Select = ({
+  className,
+  options,
+  id,
+  ...props
+}) => {
   return React.createElement("select", Object.assign({
     className: cn('block w-full py-2 px-3 border-gray-300 bg-white rounded-md border-2 shadow-sm focus:outline-none focus:border-blue-300 sm:text-sm', className),
     id: id
-  }, props), options.map(function (_ref2) {
-    var value = _ref2.value,
-        label = _ref2.label;
-    return React.createElement("option", {
-      value: value,
-      key: value
-    }, label);
-  }));
+  }, props), options.map(({
+    value,
+    label
+  }) => React.createElement("option", {
+    value: value,
+    key: value
+  }, label)));
 };
 
 var FormSelect = function FormSelect(_ref) {
