@@ -128857,6 +128857,10 @@ video {
   }
 }
 
+.sidebar {
+  width: 280px;
+}
+
 body {
   font-family: 'Nanum Gothic', sans-serif;
 }
@@ -128941,6 +128945,10 @@ ol {
 .material-icons {
   font-size: 20px;
   vertical-align: middle;
+}
+
+.layout {
+  max-height: 100vh;
 }
 
 /* Typography

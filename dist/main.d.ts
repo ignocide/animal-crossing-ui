@@ -14,3 +14,7 @@ export * from './component/Form/FormField';
 export * from './component/Form/FormTextarea';
 export * from './component/Appbar';
 export * from './component/Box';
+export * from './component/Layout';
+export * from './component/Body';
+export * from './component/Sidebar';
+export * from './component/Main';

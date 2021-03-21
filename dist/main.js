@@ -119,7 +119,7 @@ var Radio = function Radio(_ref) {
   }, label));
 };
 
-const Context = React.createContext({});
+var Context = React.createContext({});
 
 var ModalHeader = function ModalHeader(_ref) {
   var className = _ref.className,
@@ -297,11 +297,11 @@ var Appbar = function Appbar(_ref) {
       props = _objectWithoutPropertiesLoose(_ref, ["children", "className", "right"]);
 
   return React.createElement("header", Object.assign({}, props, {
-    className: cn("sticky top-0 bg-yellow-200 h-16", className)
+    className: cn("flex /*bg-yellow-200*/ bg-whtie h-16", className)
   }), React.createElement("div", {
-    className: 'mx-auto px-4 py-2 h-full align-middle flex items-center text-lg flex items-center justify-between'
+    className: 'mx-auto px-4 py-2 h-full align-middle text-lg flex items-center justify-between w-full shadow-md z-20'
   }, React.createElement("div", {
-    className: 'flex items-center justify-between h-16"'
+    className: 'flex items-center justify-between h-16'
   }, children), React.createElement("div", {
     className: 'ml-4 flex items-center md:ml-6'
   }, right)));
@@ -324,7 +324,50 @@ var Box = function Box(_ref) {
   }, props), children);
 };
 
+var Layout = function Layout(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "className"]);
+
+  return React.createElement("div", Object.assign({
+    className: cn('bg-gray-100 flex flex-1 overflow-hidden', className)
+  }, props), children);
+};
+
+var Body = function Body(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "className"]);
+
+  return React.createElement("div", Object.assign({
+    className: cn('flex flex-col overflow-hidden max-h-screen', className)
+  }, props), children);
+};
+
+var Sidebar = function Sidebar(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "className"]);
+
+  return React.createElement("div", Object.assign({
+    className: cn('sidebar shadow-sm bg-white overflow-auto shadow-md z-10 ', className)
+  }, props), React.createElement("div", {
+    className: 'p-2'
+  }, children));
+};
+
+var Main = function Main(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "className"]);
+
+  return React.createElement("div", Object.assign({
+    className: cn('main-container flex-1 p-2 overflow-auto', className)
+  }, props), children);
+};
+
 exports.Appbar = Appbar;
+exports.Body = Body;
 exports.Box = Box;
 exports.Button = Button;
 exports.ButtonGroup = ButtonGroup;
@@ -337,10 +380,13 @@ exports.FormTextarea = FormTextarea;
 exports.Grid = Grid;
 exports.Icon = Icon;
 exports.IconButton = IconButton;
+exports.Layout = Layout;
+exports.Main = Main;
 exports.ModalBody = ModalBody;
 exports.ModalContainer = ModalContainer;
 exports.ModalFooter = ModalFooter;
 exports.ModalHeader = ModalHeader;
 exports.Radio = Radio;
 exports.Row = Row;
+exports.Sidebar = Sidebar;
 //# sourceMappingURL=main.js.map

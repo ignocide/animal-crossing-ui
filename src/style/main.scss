@@ -2,6 +2,7 @@
 @import './button-group.scss';
 @import './tailwind.scss';
 
+@import './sidebar.scss';
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 body {
   font-family: 'Nanum Gothic', sans-serif;
@@ -80,6 +81,13 @@ ol {
 .material-icons {
   font-size: 20px;
   vertical-align: middle;
+}
+
+.layout {
+  max-height: 100vh;
+}
+.main-container {
+  // box-shadow: inset 4px 4px 5px 0 rgba(0, 0, 0, 0.06);
 }
 // /*
 // * Skeleton V2.0.4
