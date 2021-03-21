@@ -1,3 +1,4 @@
+import './style/main.scss';
 export * from './component/Column';
 export * from './component/Row';
 export * from './component/Button';

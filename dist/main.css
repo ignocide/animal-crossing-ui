@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+@import url(./tailwind.css);
+
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+
+._2orH1 {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+._2orH1._6fine {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+._LYpUO {
+  opacity: 1;
+  transform: scale(1);
+}
+
+._LYpUO._1Q6Di {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+._2__0K {
+  opacity: 0;
+  transform: scale(0);
+}
+
+._2__0K._25QN- {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+._2Xpdo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+._2Xpdo._B_rXk {
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+#_3HScM > #_3u5Vs {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  overflow: auto;
+}
+
+#_3HScM > #_3u5Vs #_1Nq5R {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: table;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#_3HScM > #_3u5Vs #_1Nq5R #_1QDMo {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#_3HScM > #_3u5Vs #_1Nq5R #_3uzn3 {
+  text-align: left;
+  display: inline-block;
+}
+
+._6BtBA {
+  display: inline-flex;
+}
+
+._6BtBA button + button {
+  margin-left: 10px;
+}
+
+._6BtBA._2COhj button {
+  border-radius: 0;
+}
+
+._6BtBA._2COhj button:first-of-type {
+  border-radius: 4px 0 0 4px;
+}
+
+._6BtBA._2COhj button:last-of-type {
+  border-radius: 0 4px 4px 0;
+}
+
+._6BtBA._2COhj button + button {
+  margin-left: 0px;
+  border-left: 1px solid #bbb;
+}
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.1rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+  line-height: 1.1;
+  letter-spacing: -0.1rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.08rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+  line-height: 1.1;
+  letter-spacing: -0.05rem;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+ul {
+  list-style: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 30px;
+}
+
+ol {
+  list-style: decimal;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 30px;
+}
+
+._2zXbS {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
