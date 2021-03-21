@@ -119,7 +119,7 @@ var Radio = function Radio(_ref) {
   }, label));
 };
 
-const Context = React.createContext({});
+var Context = React.createContext({});
 
 var ModalHeader = function ModalHeader(_ref) {
   var className = _ref.className,

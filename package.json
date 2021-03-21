@@ -35,7 +35,7 @@
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "test": "run-s test:unit test:lint test:build",
-    "build:tailwind": "postcss css/tailwind.css -o ./src/tailwind.css",
+    "build:tailwind": "postcss css/tailwind.css -o ./src/style/tailwind.scss",
     "eject": "react-scripts eject",
     "test:build": "run-s build",
     "test:lint": "eslint .",
