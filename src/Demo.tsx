@@ -5,7 +5,8 @@ import { Row } from './component/Row';
 import { Button } from './component/Button';
 import { Checkbox } from './component/Checkbox';
 import { Radio } from './component/Radio';
-import Modal, {
+import {
+  Modal,
   ModalBody,
   ModalContainer,
   ModalFooter,

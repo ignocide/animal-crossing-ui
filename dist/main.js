@@ -2,8 +2,8 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = _interopDefault(require('react'));
 var cn = _interopDefault(require('classnames'));
-require('react-dom');
-require('react-transition-group');
+var ReactDOM = _interopDefault(require('react-dom'));
+var reactTransitionGroup = require('react-transition-group');
 
 var Grid = function Grid(_ref) {
   var className = _ref.className,
@@ -213,6 +213,120 @@ var ModalProvider = /*#__PURE__*/function (_React$Component) {
 ModalProvider.nextKey = 0;
 var ModalConsumer = Consumer;
 
+var ModalPortal = /*#__PURE__*/function (_React$Component) {
+  _inheritsLoose(ModalPortal, _React$Component);
+
+  function ModalPortal(props) {
+    var _this;
+
+    _this = _React$Component.call(this, props) || this;
+    _this.duration = 225;
+    _this.modalKey = null;
+    _this.state = {
+      isOpen: false
+    };
+
+    _this.changeOpenState = function (bool, callback) {
+      if (callback === void 0) {
+        callback = null;
+      }
+
+      _this.setState({
+        isOpen: bool
+      }, function () {
+        if (callback) {
+          setTimeout(function () {
+            callback();
+          }, _this.duration);
+        }
+      });
+    };
+
+    _this.requestClose = function () {
+      _this.changeOpenState(false, _this.props.requestClose);
+    };
+
+    _this.prevent = function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    };
+
+    _this.modalRoot = document.getElementById('modal-container');
+
+    if (!_this.modalRoot) {
+      var root = document.createElement('div');
+      root.id = 'modal-container';
+      document.body.append(root);
+      _this.modalRoot = root;
+    }
+
+    _this.el = document.createElement('div');
+
+    _this.el.setAttribute('id', 'modal');
+
+    return _this;
+  }
+
+  var _proto = ModalPortal.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    var _this$modalRoot;
+
+    var modalContext = this.props.modalContext;
+    (_this$modalRoot = this.modalRoot) === null || _this$modalRoot === void 0 ? void 0 : _this$modalRoot.appendChild(this.el);
+    document.body.style['overflow-y'] = 'hidden';
+    this.modalKey = modalContext.push();
+    this.changeOpenState(true);
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    var _this$modalRoot2;
+
+    var modalContext = this.props.modalContext;
+    (_this$modalRoot2 = this.modalRoot) === null || _this$modalRoot2 === void 0 ? void 0 : _this$modalRoot2.removeChild(this.el);
+    document.body.style['overflow-y'] = null;
+    modalContext.removeKey(this.modalKey);
+  };
+
+  _proto.render = function render() {
+    var isOpen = this.state.isOpen;
+    var _this$props = this.props,
+        children = _this$props.children,
+        modalContext = _this$props.modalContext;
+    var isRender = modalContext.isRender;
+    return ReactDOM.createPortal(React.createElement("div", {
+      id: 'modal-blur',
+      onClick: this.requestClose,
+      style: {
+        display: !isRender(this.modalKey) ? 'none' : undefined
+      }
+    }, React.createElement(reactTransitionGroup.CSSTransition, {
+      in: isOpen && isRender(this.modalKey),
+      timeout: this.duration,
+      classNames: "fade"
+    }, React.createElement("div", {
+      id: "modal-wrapper"
+    }, React.createElement("div", {
+      id: "modal-main",
+      onClick: this.prevent,
+      className: 'modal'
+    }, children)))), this.el);
+  };
+
+  return ModalPortal;
+}(React.Component);
+
+ModalPortal.defaultProps = {
+  requestClose: function requestClose() {}
+};
+
+var Modal = function Modal(props) {
+  return React.createElement(ModalConsumer, null, function (value) {
+    return React.createElement(ModalPortal, Object.assign({}, props, {
+      modalContext: value
+    }));
+  });
+};
 var ModalHeader = function ModalHeader(_ref) {
   var className = _ref.className,
       children = _ref.children,
@@ -475,6 +589,7 @@ exports.Icon = Icon;
 exports.IconButton = IconButton;
 exports.Layout = Layout;
 exports.Main = Main;
+exports.Modal = Modal;
 exports.ModalBody = ModalBody;
 exports.ModalConsumer = ModalConsumer;
 exports.ModalContainer = ModalContainer;

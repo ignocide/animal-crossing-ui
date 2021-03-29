@@ -3,7 +3,7 @@ import { ModalConsumer } from './context';
 import ModalPortal from './ModalPortal';
 import cn from 'classnames';
 
-const Modal = (props: any) => {
+export const Modal = (props: any) => {
   return (
     <ModalConsumer>
       {(value: any) => {
@@ -62,5 +62,3 @@ export const ModalContainer: FC<any> = ({ className, children, ...props }) => {
     </div>
   );
 };
-
-export default Modal;
