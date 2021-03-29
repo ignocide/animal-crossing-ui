@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
-// import '../../style/modal.scss';
 
 interface IProps {
   children: any;
@@ -65,7 +64,7 @@ class ModalPortal extends React.Component<IProps, any> {
             callback();
           }, this.duration);
         }
-      }
+      },
     );
   };
 
@@ -93,16 +92,16 @@ class ModalPortal extends React.Component<IProps, any> {
         <CSSTransition
           in={isOpen && isRender(this.modalKey)}
           timeout={this.duration}
-          classNames='fade'
+          classNames="fade"
         >
-          <div id='modal-wrapper'>
-            <div id='modal-main' onClick={this.prevent} className={'modal'}>
+          <div id="modal-wrapper">
+            <div id="modal-main" onClick={this.prevent} className={'modal'}>
               {children}
             </div>
           </div>
         </CSSTransition>
       </div>,
-      this.el
+      this.el,
     );
   }
 }

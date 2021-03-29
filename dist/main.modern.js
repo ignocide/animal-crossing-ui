@@ -35,6 +35,12 @@ var Row = function Row(_ref) {
   }, children);
 };
 
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
   var target = {};
@@ -118,6 +124,92 @@ var Radio = function Radio(_ref) {
 };
 
 var Context = React.createContext({});
+var Provider = Context.Provider,
+    Consumer = Context.Consumer;
+
+var ModalProvider = /*#__PURE__*/function (_React$Component) {
+  _inheritsLoose(ModalProvider, _React$Component);
+
+  function ModalProvider() {
+    var _this;
+
+    _this = _React$Component.apply(this, arguments) || this;
+
+    _this.generateKey = function () {
+      var key = ModalProvider.nextKey;
+      ModalProvider.nextKey++;
+      return key;
+    };
+
+    _this.state = {
+      stack: []
+    };
+
+    _this.push = function () {
+      var stack = _this.state.stack;
+
+      var key = _this.generateKey();
+
+      stack.push(key);
+
+      _this.setState({
+        stack: stack
+      });
+
+      return key;
+    };
+
+    _this.pop = function () {
+      _this.state.stack.pop();
+
+      _this.setState({
+        stack: [].concat(_this.state.stack)
+      });
+    };
+
+    _this.removeKey = function (key) {
+      var stack = _this.state.stack;
+      stack = stack.filter(function (value) {
+        return value !== key;
+      });
+
+      _this.setState({
+        stack: stack
+      });
+    };
+
+    _this.isRender = function (key) {
+      var stack = _this.state.stack;
+      return key === stack[stack.length - 1];
+    };
+
+    return _this;
+  }
+
+  var _proto = ModalProvider.prototype;
+
+  _proto.render = function render() {
+    var state = this.state,
+        push = this.push,
+        removeKey = this.removeKey,
+        isRender = this.isRender;
+    var stack = state.stack;
+    var value = {
+      stack: stack,
+      push: push,
+      removeKey: removeKey,
+      isRender: isRender
+    };
+    return React.createElement(Provider, {
+      value: value
+    }, this.props.children);
+  };
+
+  return ModalProvider;
+}(React.Component);
+
+ModalProvider.nextKey = 0;
+var ModalConsumer = Consumer;
 
 var ModalHeader = function ModalHeader(_ref) {
   var className = _ref.className,
@@ -217,22 +309,23 @@ var FormInput = function FormInput(_ref) {
   }, props))));
 };
 
-const Select = ({
-  className,
-  options,
-  id,
-  ...props
-}) => {
+var Select = function Select(_ref) {
+  var className = _ref.className,
+      options = _ref.options,
+      id = _ref.id,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "options", "id"]);
+
   return React.createElement("select", Object.assign({
     className: cn('block w-full py-2 px-3 border-gray-300 bg-white rounded-md border-2 shadow-sm focus:outline-none focus:border-blue-300 sm:text-sm', className),
     id: id
-  }, props), options.map(({
-    value,
-    label
-  }) => React.createElement("option", {
-    value: value,
-    key: value
-  }, label)));
+  }, props), options.map(function (_ref2) {
+    var value = _ref2.value,
+        label = _ref2.label;
+    return React.createElement("option", {
+      value: value,
+      key: value
+    }, label);
+  }));
 };
 
 var FormSelect = function FormSelect(_ref) {
@@ -364,5 +457,5 @@ var Main = function Main(_ref) {
   }, props), children);
 };
 
-export { Appbar, Body, Box, Button, ButtonGroup, Checkbox, Column, FormField, FormInput, FormSelect, FormTextarea, Grid, Icon, IconButton, Layout, Main, ModalBody, ModalContainer, ModalFooter, ModalHeader, Radio, Row, Sidebar };
+export { Appbar, Body, Box, Button, ButtonGroup, Checkbox, Column, FormField, FormInput, FormSelect, FormTextarea, Grid, Icon, IconButton, Layout, Main, ModalBody, ModalConsumer, ModalContainer, ModalFooter, ModalHeader, ModalProvider, Radio, Row, Sidebar };
 //# sourceMappingURL=main.modern.js.map

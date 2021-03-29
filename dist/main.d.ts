@@ -5,6 +5,8 @@ export * from './component/Button';
 export * from './component/Checkbox';
 export * from './component/Radio';
 export * from './component/Modal';
+export * from './component/Modal/context';
+export * from './component/Modal/ModalPortal';
 export * from './component/Button';
 export * from './component/ButtonGroup';
 export * from './component/Icon';
